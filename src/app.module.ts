@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Jogos } from './jogo/entities/jogo.entity';
+import { JogosModule } from './jogo/jogo.module';
 
 @Module({
   imports: [
@@ -11,11 +12,12 @@ import { Jogos } from './jogo/entities/jogo.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'kutum@12',
+      password: 'root',
       database: 'db_lojajogos',
       entities: [Jogos],
       synchronize: true,
-    })
+    }),
+    JogosModule
   ],
   controllers: [],
   providers: [],
