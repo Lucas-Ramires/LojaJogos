@@ -1,5 +1,6 @@
 import { IsNotEmpty } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Categorias } from "src/categoria/entities/categoria.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: "tb_jogos"})
 export class Jogos{
@@ -18,5 +19,8 @@ export class Jogos{
     @Column({length: 1000})
     foto: string;
 
-
+    @ManyToOne(() => Categorias, (categoria) => categoria.jogo,{
+        onDelete: "CASCADE"
+    })
+    categoria: Categorias;
 }
