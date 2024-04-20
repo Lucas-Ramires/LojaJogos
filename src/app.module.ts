@@ -12,7 +12,7 @@ import { JogosModule } from './jogo/jogo.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
+      password: 'kutum@12',
       database: 'db_lojajogos',
       entities: [Jogos],
       synchronize: true,
