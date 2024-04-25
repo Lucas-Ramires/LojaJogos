@@ -1,9 +1,10 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
 import { JogosService } from "../services/jogos.service";
 import { Jogos } from "../entities/jogo.entity";
+import { JwtAuthGuard } from "src/auth/guard/jwt-auth.guard";
 
     
-
+@UseGuards(JwtAuthGuard)
 @Controller("/jogos")
 export class JogosController{
     constructor(private readonly jogosService: JogosService) {}
