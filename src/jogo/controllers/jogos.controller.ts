@@ -2,10 +2,13 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPip
 import { JogosService } from "../services/jogos.service";
 import { Jogos } from "../entities/jogo.entity";
 import { JwtAuthGuard } from "src/auth/guard/jwt-auth.guard";
+import { ApiTags, ApiBearerAuth } from "@nestjs/swagger";
 
-    
+@ApiTags('Jogo')    
 @UseGuards(JwtAuthGuard)
 @Controller("/jogos")
+@ApiBearerAuth()
+
 export class JogosController{
     constructor(private readonly jogosService: JogosService) {}
 
